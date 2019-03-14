@@ -9,7 +9,6 @@ import { withRouter } from 'react-router-dom'
 class Navbar extends Component {
 
   onLogoutClick(e) {
-    console.log(this.props)
     e.preventDefault();
     this.props.clearCurrentProfile()
     this.props.logoutUser();

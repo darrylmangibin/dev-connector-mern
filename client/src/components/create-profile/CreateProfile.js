@@ -4,6 +4,8 @@ import TextFieldGroup from '../common/textFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import InputGroup from '../common/InputGroup';
 import SelectListGroup from '../common/SelectListGroup';
+import { createProfile } from '../../actions/profileActions'
+import { withRouter } from 'react-router-dom';
 
 class CreateProfile extends React.Component {
   constructor(props) {
@@ -30,9 +32,30 @@ class CreateProfile extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.errors){
+      this.setState({ errors: nextProps.errors })
+    }
+  }
+
   onSubmit(e) {
     e.preventDefault()
-    console.log(this.props)
+    const profileData = {
+      handle: this.state.handle,
+      company: this.state.company,
+      website: this.state.website,
+      location: this.state.location,
+      status: this.state.status,
+      skills: this.state.skills,
+      githubusername: this.state.githubusername,
+      bio: this.state.bio,
+      twitter: this.state.twitter,
+      facebook: this.state.facebook,
+      linkedin: this.state.linkedin,
+      youtube: this.state.youtube,
+      instagram: this.state.instagram,
+    }
+    this.props.createProfile(profileData, this.props.history)
   }
 
   onChange(e) {
@@ -221,6 +244,7 @@ class CreateProfile extends React.Component {
 
                 <div className="mb-3">
                   <button
+                    type="button"
                     className="btn btn-light"
                     onClick={() => {
                       this.setState((prevState) => {
@@ -256,4 +280,6 @@ const matStateToProps = (state) => {
   }
 }
 
-export default connect(matStateToProps)(CreateProfile)
+export default connect(matStateToProps, {
+  createProfile
+})(withRouter(CreateProfile))
