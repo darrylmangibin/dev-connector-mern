@@ -7,7 +7,7 @@ export default () => {
       <img 
         src={spinner}
         alt="Loading"
-        stye={{width: '200px', margin: 'auto', display: 'block'}}
+        style={{width: '200px', margin: 'auto', display: 'block'}}
       />
     </div>
   )
