@@ -106,6 +106,42 @@ export const removeLike = (id) => {
   }
 }
 
+export const addComment = (postId, commentData) => {
+  return (dispatch) => {
+    axios.post(`/api/posts/comment/${postId}`, commentData)
+      .then((res) => {
+        return dispatch({
+          type: GET_POST,
+          payload: res.data
+        })
+      })
+      .catch(err => {
+        dispatch({
+          type: GET_ERRORS,
+          payload: err.response.data
+        })
+      })
+  }
+}
+
+export const deleteComment = (postId, commentId) => {
+  return (dispatch) => {
+    axios.delete(`/api/posts/comment/${postId}/${commentId}`)
+      .then((res) => {
+        return dispatch({
+          type: GET_POST,
+          payload: res.data
+        })
+      })
+      .catch(err => {
+        dispatch({
+          type: GET_ERRORS,
+          payload: err.response.data
+        })
+      })
+  }
+}
+
 
 export const setPostLoading = () => {
   return {
