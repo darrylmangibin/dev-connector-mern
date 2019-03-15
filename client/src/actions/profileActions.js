@@ -87,6 +87,24 @@ export const deleteExperience = (id) => {
   }
 }
 
+export const deleteEducation = (id) => {
+  return (dispatch) => {
+    axios.delete(`/api/profile/education/${id}`)
+      .then((res) => {
+        return dispatch({
+          type: GET_PROFILE,
+          payload: res.data
+        })
+      })
+      .catch((err) => {
+        dispatch({
+          type: GET_ERRORS,
+          payload: err.response.data
+        })
+      })
+  }
+}
+
 export const deleteAccount = () => {
   return (dispatch) => {
     if(window.confirm('Are you sure? This can NOT be undone!')) {
