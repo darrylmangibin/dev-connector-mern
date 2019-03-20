@@ -16,6 +16,12 @@ img {
   padding-top: 80px;
 }
 
+@media (max-width: 375px) {
+  .landing-title {
+    font-size: 3.5rem;
+  }
+}
+
 .dark-overlay {
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;

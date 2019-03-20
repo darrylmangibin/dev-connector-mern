@@ -18,7 +18,7 @@ class ProfileGithub extends Component {
     const { clientId, clientSecret, count, sort } = this.state;
 
     fetch(`https://api.github.com/users/${username}/repos?per_page=${count}&sort=${sort}&client_id=${clientId}&client_secret=${clientSecret}`)
-    // fetch('https://api.github.com/users/darrylmangibin/repos?per_page=5&sort=created:%20asc&client_id=dd1ad1748ff2e56875cf&client_secret=21a778d0d69d130792a3df5b5e1b0677598ab96a')
+    
       .then((res) => {
         return res.json()
       })
@@ -65,7 +65,7 @@ class ProfileGithub extends Component {
       <div>
         <hr/>
         <h3 className="mb-4">Latest GitHub Repos</h3>
-        {repoItems}
+        {repoItems.length > 0 ? repoItems : null}
       </div>
     )
   }
