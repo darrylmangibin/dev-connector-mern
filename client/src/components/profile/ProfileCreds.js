@@ -36,7 +36,6 @@ class ProfileCreds extends Component {
     })
 
     const eduItems = education.map((edu) => {
-      console.log(edu)
       return (
         <li key={edu._id} className="list-group-item">
           <h4>{edu.school}</h4>

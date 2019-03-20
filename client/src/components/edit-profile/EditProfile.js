@@ -38,7 +38,6 @@ class EditProfile extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps)
     if(nextProps.errors){
       this.setState({ errors: nextProps.errors })
     }
@@ -176,8 +175,8 @@ class EditProfile extends React.Component {
         value: 'Senior Developer'
       },
       {
-        label: 'Manaer',
-        value: 'Manger'
+        label: 'Manager',
+        value: 'Manager'
       },
       {
         label: 'Student or Learning',
